@@ -1,7 +1,7 @@
-getProductsData();
+getProductData();
 
 // Create function that receives data from the database:
-function getProductsData(){
+function getProductData(){
     // Fetch the database:
     fetch('https://dummyjson.com/products')
 
@@ -20,10 +20,24 @@ function receiveProductData(productData){
     let products = productData.products;
 
     // Create a variable that becomes an empty array for adding the 3 products:
-    let productList = [];
+    let myFeaturedProducts = [];
 
-    // Push 3 chosen products to the empty array "productList" out of 30 products available in database:
-    productList.push(products[2], products[11], products[27]);
+    // Push 3 chosen products to the empty array "myFeaturedProducts" out of 30 products available in database:
+    myFeaturedProducts.push(products[2], products[11], products[27]);
 
-    console.log(productList);
+    console.log(myFeaturedProducts);
+
+    createProductView(myFeaturedProducts)
 }
+
+function createProductView(myCards) {
+
+    myCards.forEach(product => {
+        console.log(product);
+
+        let myHTML = `<figure onclick="ProductCallback(${product.id})" ><h2>${product.title}</h2><img src="${product.thumbnail}"><h3>PRIS: ${product.price} rabat: ${product.discountPercentage}</h3><figure>`
+
+        myFeaturedElement.innerHTML += myHTML
+    })
+}
+
