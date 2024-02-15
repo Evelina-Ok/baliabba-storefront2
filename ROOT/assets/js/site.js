@@ -30,8 +30,61 @@ function receiveProductData(productData){
     createProductView(myFeaturedProducts)
 }
 
-function createProductView(myCards) {
 
+
+
+function receiveCategoryData
+
+
+
+
+function navCallBack(myCategory) {
+    console.log(myCategory);
+
+    if (myCategory = "all") {
+        createProductView(myProducts)
+    }
+
+    let mySelectedProducts = []
+
+    myProducts.forEach(product => {
+        console.log(product.category);
+
+        if (myCategory == product.category) {
+            console.log(product)
+            mySelectedProducts.push(product)        
+        }
+
+    });
+    console.log(mySelectedProducts)
+    createProductView(mySelectedProducts)
+}
+
+
+
+function productCallBack(myID) {
+    console.log(myID);
+    let myClickedProduct = null
+}
+
+
+
+function create
+
+
+function createNavBar(mycategories) {
+    let myHTML =""
+
+    mycategories.forEach(element => {
+        console.log(elemenent);
+        myHTML += `button onclick"navCallBack(${element})">${element}<button>`
+    })
+    navElement.innerHTM = myHTML
+}
+
+
+function createProductView(myCards) {
+    clearApp()
     myCards.forEach(product => {
         console.log(product);
 
